@@ -4,7 +4,7 @@ import CurrenciesList from './CurrenciesList';
 
 const CurrencyTracker = () => (
   <Container>
-    <h1>Searching</h1>
+    {/* <h1 style={{ marginTop: '8rem' }}>Searching</h1> */}
     {/* <Searching /> */}
     <CurrenciesList />
   </Container>
@@ -13,7 +13,7 @@ export default CurrencyTracker;
 const Container = styled.div`
   position: absolute;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 4;
   display: flex;
   align-items: center;

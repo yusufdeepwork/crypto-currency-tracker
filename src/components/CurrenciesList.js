@@ -16,10 +16,10 @@ const CurrenciesList = () => {
         <Title size="3rem">Price</Title>
         <Title size="3rem">Volume (24h)</Title>
         <Title size="4rem">Change (24h)</Title>
-        <Title size="5rem">Last 7 days</Title>
+        {/* <Title size="5rem">Last 7 days</Title> */}
       </Categories>
       <Currencies>
-        {state ? state.map((props, index) => <CurrencyCards />) : null}
+        {state ? state.map((props, index) => <CurrencyCards props={props} />) : null}
       </Currencies>
 
     </CurrenciesContainer>
@@ -31,12 +31,11 @@ const CurrenciesContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 60%;
+  height: 80%;
   overflow: auto;
   background-color: #f6f8f9;
   border-radius: 1rem;
   pointer-events: auto;
-  margin-bottom: 4rem;
   /* width */
   ::-webkit-scrollbar {
     width: 1rem;
@@ -71,7 +70,8 @@ const Categories = styled.div`
   align-items: center;
   width: 90%;
   height: 3rem;
-  font-size: 12px;
+  font-size: 15px;
+  padding: 0 1rem;
 `;
 
 const Title = styled.div`

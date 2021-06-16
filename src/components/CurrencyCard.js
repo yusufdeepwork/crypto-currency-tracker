@@ -1,17 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CurrencyCard = () => (
-  <CardContainer>
-    <CurrencyRank> 1 </CurrencyRank>
-    <CurrencyProfile>selam</CurrencyProfile>
-    <CurrencyPriceText gray>Market Cap</CurrencyPriceText>
-    <CurrencyPriceText gray>Price</CurrencyPriceText>
-    <CurrencyPriceText>Volume 24h</CurrencyPriceText>
-    <CurrencyChange>change</CurrencyChange>
-    <Last7DaysGraphic>graphic</Last7DaysGraphic>
-  </CardContainer>
-);
+// eslint-disable-next-line react/prop-types
+const CurrencyCard = ({ props }) =>
+  // eslint-disable-next-line no-console
+  (
+    <CardContainer>
+      <CurrencyRank>
+        {props.market_cap_rank}
+      </CurrencyRank>
+      <CurrencyProfile>
+        <CurrencyImage src={props.image} alt="selam" />
+        <text>{props.name}</text>
+      </CurrencyProfile>
+      <CurrencyPriceText gray>{props.market_cap}</CurrencyPriceText>
+      <CurrencyPriceText gray>{props.current_price}</CurrencyPriceText>
+      <CurrencyPriceText>{props.total_volume}</CurrencyPriceText>
+      <CurrencyChange>{props.market_cap_change_percentage_24h}</CurrencyChange>
+      {/* <Last7DaysGraphic>graphic</Last7DaysGraphic> */}
+    </CardContainer>
+  );
 export default CurrencyCard;
 
 const CardContainer = styled.div`
@@ -32,11 +40,12 @@ const CurrencyRank = styled.div`
 `;
 const CurrencyProfile = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   width: 5rem ;
   min-width: 5rem;
+  font-size: 15px;
 `;
 
 const CurrencyPriceText = styled.text`
@@ -60,4 +69,9 @@ const Last7DaysGraphic = styled.div`
   align-items: center;
   text-align: center ;
   display: flex;
+`;
+const CurrencyImage = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
+  padding-right: 15px;
 `;
