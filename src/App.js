@@ -1,23 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import axios from 'axios';
 import styled from 'styled-components';
-import CurrencyTracker from './components/CurrencyTracker';
+import CryptoCurrencyTracker from './components/CurrencyTracker';
 
-const App = () => {
-  useEffect(() => {
-    axios.get();
-  }, []);
+const App = () => (
+  <AppContainer>
+    <BottomCorner />
+    <CryptoCurrencyTracker />
+    <TopCorner />
+  </AppContainer>
 
-  return (
-    <AppContainer>
-      <BottomCorner />
-      <CurrencyTracker />
-      <TopCorner />
-    </AppContainer>
-
-  );
-};
+);
 
 export default App;
 

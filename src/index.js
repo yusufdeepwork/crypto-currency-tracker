@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import CryptoCurrencyProvider from './context/CryptoCurrencyContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CryptoCurrencyProvider>
+      <App />
+    </CryptoCurrencyProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
