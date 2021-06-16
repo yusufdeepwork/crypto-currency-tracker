@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import App from './App';
 import CryptoCurrencyProvider from './context/CryptoCurrencyContext';
 
+const queryClient = new QueryClient();
+
 ReactDOM.render(
   <React.StrictMode>
-    <CryptoCurrencyProvider>
-      <App />
-    </CryptoCurrencyProvider>
+    <QueryClientProvider client={queryClient}>
+      <CryptoCurrencyProvider>
+        <App />
+      </CryptoCurrencyProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

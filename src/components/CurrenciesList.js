@@ -1,13 +1,25 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { CryptoContext } from '../context/CryptoCurrencyContext';
-import CurrencyCards from './CurrencyCard';
+
+const Fuse = require('fuse.js');
+// import CurrencyCard from './CurrencyCard';
 
 const CurrenciesList = () => {
-  const { state } = useContext(CryptoContext);
+  const { currencies, currencyName, setCurrencyName } = useContext(CryptoContext);
+
+  const fuse = new Fuse(currencies, {
+    shouldSort: true,
+    keys: [
+      'name',
+    ],
+  });
+
+  const results = fuse.search('Bitcoin');
+
+  console.log(results);
 
   return (
-
     <CurrenciesContainer>
       <Categories>
         <Title size="3rem">Rank</Title>
@@ -19,9 +31,9 @@ const CurrenciesList = () => {
         {/* <Title size="5rem">Last 7 days</Title> */}
       </Categories>
       <Currencies>
-        {state ? state.map((props, index) => <CurrencyCards props={props} />) : null}
+        {/* {fuse.search(currencyName).map((currency) => <CurrencyCard props={currency} />)} */}
       </Currencies>
-
+      {/* {listCurrencies()} */}
     </CurrenciesContainer>
   );
 };

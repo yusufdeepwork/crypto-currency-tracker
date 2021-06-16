@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import CurrenciesList from './CurrenciesList';
+import SearchingCrypto from './SearchingCrypto';
 
 const CurrencyTracker = () => (
   <Container>
     {/* <h1 style={{ marginTop: '8rem' }}>Searching</h1> */}
-    {/* <Searching /> */}
+    <SearchingCrypto />
     <CurrenciesList />
   </Container>
 );
