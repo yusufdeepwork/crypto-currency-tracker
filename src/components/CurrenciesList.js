@@ -2,22 +2,14 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { CryptoContext } from '../context/CryptoCurrencyContext';
 
-const Fuse = require('fuse.js');
-// import CurrencyCard from './CurrencyCard';
+ import CurrencyCard from './CurrencyCard';
 
 const CurrenciesList = () => {
   const { currencies, currencyName, setCurrencyName } = useContext(CryptoContext);
 
-  const fuse = new Fuse(currencies, {
-    shouldSort: true,
-    keys: [
-      'name',
-    ],
-  });
+  const filteredCurrencies = currencyName ? currencies
+      .filter(({name}) => name.toLowerCase().includes(currencyName.toLowerCase())): currencies;
 
-  const results = fuse.search('Bitcoin');
-
-  console.log(results);
 
   return (
     <CurrenciesContainer>
@@ -31,9 +23,8 @@ const CurrenciesList = () => {
         {/* <Title size="5rem">Last 7 days</Title> */}
       </Categories>
       <Currencies>
-        {/* {fuse.search(currencyName).map((currency) => <CurrencyCard props={currency} />)} */}
+          {filteredCurrencies? filteredCurrencies.map(currency=> <CurrencyCard props={currency} />):'loading...'}
       </Currencies>
-      {/* {listCurrencies()} */}
     </CurrenciesContainer>
   );
 };
@@ -42,6 +33,7 @@ export default CurrenciesList;
 const CurrenciesContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top:2rem ;
   width: 80%;
   height: 80%;
   overflow: auto;

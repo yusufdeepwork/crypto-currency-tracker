@@ -15,5 +15,5 @@ const SearchingCrypto = () => {
 export default SearchingCrypto;
 
 const SearchedCryptoInput = styled.input`
-    color: greenyellow;
+    color: black;
 `;
