@@ -18,16 +18,15 @@ export default SearchingCrypto;
 const SearchedCryptoInput = styled.input`
   border: none;
   color: black;
-  width:15rem;
-  height:2rem;
+  width:12rem;
+  height:2.5rem;
   outline: none;
   background-color:lightcyan;
-  padding: 10px;
   border-radius: 10rem;
   font-family: 'Fira Code', monospace;
   font-weight: bold;
-
-  
+  padding-left:1rem;
+  margin-bottom: 0.5rem;
 
   
   
@@ -35,7 +34,5 @@ const SearchedCryptoInput = styled.input`
   :focus{
     border: none;
     outline: none;
-    box-shadow: 5px green ;
-    
   }
 `;
