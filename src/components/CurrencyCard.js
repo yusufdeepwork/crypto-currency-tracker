@@ -3,19 +3,26 @@ import styled from 'styled-components';
 
 const CurrencyCard = ({
   market_cap_rank, image, name, market_cap, current_price, total_volume, market_cap_change_percentage_24h,
-}) => (
-  <CardContainer>
-    <CurrencyRank>{market_cap_rank}</CurrencyRank>
-    <CurrencyProfile>
-      <CurrencyImage src={image} alt="selam" />
-      <text style={{ padding: '0 5px' }}>{name}</text>
-    </CurrencyProfile>
-    <CurrencyPriceText gray>{market_cap}</CurrencyPriceText>
-    <CurrencyPriceText nonMobile>{current_price}</CurrencyPriceText>
-    <CurrencyPriceText gray>{total_volume}</CurrencyPriceText>
-    <CurrencyChange>{market_cap_change_percentage_24h}</CurrencyChange>
-  </CardContainer>
-);
+}) => {
+
+        const changeColor = market_cap_change_percentage_24h? market_cap_change_percentage_24h
+            .toString()
+            .startsWith('-') ? 'red' : 'green'
+            : null;
+    return(
+        <CardContainer>
+            <CurrencyRank>{market_cap_rank}</CurrencyRank>
+            <CurrencyProfile>
+                <CurrencyImage src={image} alt="selam"/>
+                <text style={{padding: '0 5px'}}>{name}</text>
+            </CurrencyProfile>
+            <CurrencyPriceText gray>{market_cap}</CurrencyPriceText>
+            <CurrencyPriceText nonMobile>{current_price}</CurrencyPriceText>
+            <CurrencyPriceText gray>{total_volume}</CurrencyPriceText>
+            <CurrencyChange color={changeColor}>{market_cap_change_percentage_24h}</CurrencyChange>
+        </CardContainer>
+    )
+}
 export default CurrencyCard;
 
 const CardContainer = styled.div`
@@ -63,7 +70,7 @@ const CurrencyPriceText = styled.text`
 `;
 const CurrencyChange = styled.div`
   text-align: right;
-
+  color: ${({ color }) => `${color}`};
 `;
 
 const CurrencyImage = styled.img`
