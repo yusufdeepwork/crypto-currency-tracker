@@ -5,7 +5,6 @@ import SearchingCrypto from './SearchingCrypto';
 
 const CurrencyTracker = () => (
   <Container>
-    {/* <h1 style={{ marginTop: '8rem' }}>Searching</h1> */}
     <SearchingCrypto />
     <CurrenciesList />
   </Container>
@@ -24,4 +23,11 @@ const Container = styled.div`
   background-color: white;
   border-radius: 0.5rem 0 0.5rem 0;
   font-family: "Fira Code Medium",monospace;
+  @media screen and (max-width: 790px){
+    width: 80%;
+  }
+  @media screen and (max-width: 540px){
+    height: 97vh;
+    width: 85%;
+  }
 `;

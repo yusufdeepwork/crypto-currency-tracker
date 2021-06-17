@@ -1,77 +1,84 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// eslint-disable-next-line react/prop-types
-const CurrencyCard = ({ props }) =>
-  // eslint-disable-next-line no-console
-  (
-    <CardContainer>
-      <CurrencyRank>
-        {props.market_cap_rank}
-      </CurrencyRank>
-      <CurrencyProfile>
-        <CurrencyImage src={props.image} alt="selam" />
-        <text>{props.name}</text>
-      </CurrencyProfile>
-      <CurrencyPriceText gray>{props.market_cap}</CurrencyPriceText>
-      <CurrencyPriceText gray>{props.current_price}</CurrencyPriceText>
-      <CurrencyPriceText>{props.total_volume}</CurrencyPriceText>
-      <CurrencyChange>{props.market_cap_change_percentage_24h}</CurrencyChange>
-      {/* <Last7DaysGraphic>graphic</Last7DaysGraphic> */}
-    </CardContainer>
-  );
+const CurrencyCard = ({market_cap_rank,image,name,market_cap,current_price,total_volume,market_cap_change_percentage_24h }) =>
+    (
+        <CardContainer>
+            <CurrencyRank>{market_cap_rank}</CurrencyRank>
+            <CurrencyProfile>
+                <CurrencyImage src={image} alt="selam"/>
+                <text style={{padding:"0 5px"}}>{name}</text>
+            </CurrencyProfile>
+            <CurrencyPriceText gray  >{market_cap}</CurrencyPriceText>
+            <CurrencyPriceText nonMobile  >{current_price}</CurrencyPriceText>
+            <CurrencyPriceText gray>{total_volume}</CurrencyPriceText>
+            <CurrencyChange >{market_cap_change_percentage_24h}</CurrencyChange>
+        </CardContainer>
+    );
 export default CurrencyCard;
 
 const CardContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 5.1% 30% 13.5% 16.5% 18.5% 19.5% ;
+  @media screen and (max-width: 1359px){
+    grid-template-columns: 8.1% 40% 27% 27% ;
+  }
+  @media screen and (max-width: 790px){
+    grid-template-columns: 8.1% 40%  50% ;
+  }
+  @media screen and (max-width: 540px){
+    grid-template-columns: 8.1% 40%  55% ;
+  }
+  grid-template-rows: 3rem;
+  align-items: center;
   width: 90%;
-  height: 5rem;
-  min-height: 5rem;
+  text-align: left;
+  padding: 5px 10px;
 `;
 const CurrencyRank = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3rem;
-  min-width: 3rem;
-  color: gray;
+ text-align: center;
 `;
 const CurrencyProfile = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  flex-direction: row;
-  width: 5rem ;
-  min-width: 5rem;
-  font-size: 15px;
+  padding: 0 10px;
+  @media screen and (max-width: 1359px){
+   padding-left: 20px;
+  }
 `;
 
 const CurrencyPriceText = styled.text`
-  color: ${({ gray }) => (gray ? 'gray' : 'black')};
-  align-self: center;
-  width: 3rem;
-  min-width: 3rem;
-`;
-const CurrencyChange = styled.div`
-  width: 5rem;
-  min-width: 5rem;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+  text-align: right;
+  color: ${({gray}) => (gray ? 'gray' : 'black')};
+  @media screen and (max-width: 1359px){
+    display: ${({gray}) => (gray ? 'none' : null)};  
+  }
+
+  @media screen and (max-width: 790px){
+    display: ${({nonMobile}) => (nonMobile ? 'none' : null)};
+  }
 
 `;
-const Last7DaysGraphic = styled.div`
-    background-color: greenyellow;
-  justify-content: center;
-  align-items: center;
-  text-align: center ;
-  display: flex;
+const CurrencyChange = styled.div`
+  text-align: right;
+
 `;
+
 const CurrencyImage = styled.img`
   width: 1.5rem;
   height: 1.5rem;
-  padding-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  text-align: center;
+  padding:0 5px;
+
+  @media screen and (max-width: 400px){
+    padding: 0;
+    width: 1rem;
+    height: 1rem;
+  }
+  
 `;
