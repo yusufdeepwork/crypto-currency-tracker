@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CurrencyCard = ({market_cap_rank,image,name,market_cap,current_price,total_volume,market_cap_change_percentage_24h }) =>
-    (
-        <CardContainer>
-            <CurrencyRank>{market_cap_rank}</CurrencyRank>
-            <CurrencyProfile>
-                <CurrencyImage src={image} alt="selam"/>
-                <text style={{padding:"0 5px"}}>{name}</text>
-            </CurrencyProfile>
-            <CurrencyPriceText gray  >{market_cap}</CurrencyPriceText>
-            <CurrencyPriceText nonMobile  >{current_price}</CurrencyPriceText>
-            <CurrencyPriceText gray>{total_volume}</CurrencyPriceText>
-            <CurrencyChange >{market_cap_change_percentage_24h}</CurrencyChange>
-        </CardContainer>
-    );
+const CurrencyCard = ({
+  market_cap_rank, image, name, market_cap, current_price, total_volume, market_cap_change_percentage_24h,
+}) => (
+  <CardContainer>
+    <CurrencyRank>{market_cap_rank}</CurrencyRank>
+    <CurrencyProfile>
+      <CurrencyImage src={image} alt="selam" />
+      <text style={{ padding: '0 5px' }}>{name}</text>
+    </CurrencyProfile>
+    <CurrencyPriceText gray>{market_cap}</CurrencyPriceText>
+    <CurrencyPriceText nonMobile>{current_price}</CurrencyPriceText>
+    <CurrencyPriceText gray>{total_volume}</CurrencyPriceText>
+    <CurrencyChange>{market_cap_change_percentage_24h}</CurrencyChange>
+  </CardContainer>
+);
 export default CurrencyCard;
 
 const CardContainer = styled.div`
@@ -50,13 +51,13 @@ const CurrencyProfile = styled.div`
 
 const CurrencyPriceText = styled.text`
   text-align: right;
-  color: ${({gray}) => (gray ? 'gray' : 'black')};
+  color: ${({ gray }) => (gray ? 'gray' : 'black')};
   @media screen and (max-width: 1359px){
-    display: ${({gray}) => (gray ? 'none' : null)};  
+    display: ${({ gray }) => (gray ? 'none' : null)};  
   }
 
   @media screen and (max-width: 790px){
-    display: ${({nonMobile}) => (nonMobile ? 'none' : null)};
+    display: ${({ nonMobile }) => (nonMobile ? 'none' : null)};
   }
 
 `;

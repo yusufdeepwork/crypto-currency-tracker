@@ -1,17 +1,16 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const Categories = () => {
- return <CategoriesContainer>
-        <Title >Rank</Title>
-        <Title left>Coin</Title>
-        <Title nonTablet>Market Cap</Title>
-        <Title nonMobile >Price</Title>
-        <Title nonTablet>Volume (24h)</Title>
-        <Title >Change (24h)</Title>
-        {/* <Title size="5rem">Last 7 days</Title> */}
-    </CategoriesContainer>
-}
+const Categories = () => (
+  <CategoriesContainer>
+    <Title>Rank</Title>
+    <Title left>Coin</Title>
+    <Title nonTablet>Market Cap</Title>
+    <Title nonMobile>Price</Title>
+    <Title nonTablet>Volume (24h)</Title>
+    <Title>Change (24h)</Title>
+  </CategoriesContainer>
+);
 export default Categories;
 const CategoriesContainer = styled.div`
   display: grid;
@@ -32,15 +31,15 @@ const CategoriesContainer = styled.div`
 `;
 
 const Title = styled.div`
-  text-align: ${({left}) => left ? `left` : 'right'};;
-  padding-left: ${({left}) => left ? `3rem` : null};
+  text-align: ${({ left }) => (left ? 'left' : 'right')};;
+  padding-left: ${({ left }) => (left ? '3rem' : null)};
 
   @media screen and (max-width: 1359px){
-    display: ${({nonTablet}) => (nonTablet ? 'none' : null)};
+    display: ${({ nonTablet }) => (nonTablet ? 'none' : null)};
   }
 
   @media screen and (max-width: 790px){
-    display: ${({nonMobile}) => (nonMobile ? 'none' : null)};
+    display: ${({ nonMobile }) => (nonMobile ? 'none' : null)};
   }
   @media screen and (max-width: 540px){
    font-size: 14px;

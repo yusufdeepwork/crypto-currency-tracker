@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
 import styled from 'styled-components';
 import CryptoCurrencyTracker from './components/CurrencyTracker';
 
@@ -20,6 +19,7 @@ const AppContainer = styled.div`
   display: flex;
   height: 100vh;
   background-color: #f6f8f9;
+  
 `;
 const BottomCorner = styled.div`
   position: absolute;

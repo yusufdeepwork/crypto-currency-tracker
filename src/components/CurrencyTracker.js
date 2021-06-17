@@ -22,7 +22,8 @@ const Container = styled.div`
   width: 70%;
   background-color: white;
   border-radius: 0.5rem 0 0.5rem 0;
-  font-family: "Fira Code Medium",monospace;
+  font-family: 'Fira Code', monospace;
+  font-weight: bold;
   @media screen and (max-width: 790px){
     width: 80%;
   }

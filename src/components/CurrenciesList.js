@@ -1,25 +1,28 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import {CryptoContext} from '../context/CryptoCurrencyContext';
+import { CryptoContext } from '../context/CryptoCurrencyContext';
 
 import CurrencyCard from './CurrencyCard';
-import Categories from "./Categories";
+import Categories from './Categories';
 
 const CurrenciesList = () => {
-    const {currencies, currencyName} = useContext(CryptoContext);
+  const { currencies, currencyName } = useContext(CryptoContext);
 
-    const filteredCurrencies = currencyName ? currencies
-        .filter(({name}) => name.toLowerCase().includes(currencyName.toLowerCase())) : currencies;
+  const filteredCurrencies = currencyName ? currencies
+    .filter(({ name }) => name.toLowerCase().includes(currencyName.toLowerCase())) : currencies;
 
-    return (
-        <CurrenciesContainer>
-            <Categories />
-            <Currencies>
-                {filteredCurrencies ? filteredCurrencies.map(currency => <CurrencyCard
-                    {...currency} />) : 'loading...'}
-            </Currencies>
-        </CurrenciesContainer>
-    );
+  return (
+    <CurrenciesContainer>
+      <Categories />
+      <Currencies>
+        {filteredCurrencies ? filteredCurrencies.map((currency) => (
+          <CurrencyCard
+            {...currency}
+          />
+        )) : 'loading...'}
+      </Currencies>
+    </CurrenciesContainer>
+  );
 };
 export default CurrenciesList;
 
@@ -38,7 +41,6 @@ const CurrenciesContainer = styled.div`
     width: 90%;
   }
 `;
-
 
 const Currencies = styled.div`
   display: flex;
