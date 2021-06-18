@@ -16,3 +16,5 @@
 ## Used Technologies
 `react` `react-query` `syled-components`
 
+## API
+`Coin Gecko` : https://www.coingecko.com/api/documentations/v3
