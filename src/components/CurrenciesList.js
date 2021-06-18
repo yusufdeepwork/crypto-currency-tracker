@@ -82,4 +82,7 @@ const Currencies = styled.div`
     background: #8fd5f8;
     border-radius: 2rem;
   }
+  @media screen and (max-width: 362px){
+    font-size: 11px;
+  }
 `;
