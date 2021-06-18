@@ -27,7 +27,9 @@ const SearchedCryptoInput = styled.input`
   font-weight: bold;
   padding-left:1rem;
   margin-bottom: 0.5rem;
-
+  @media screen and (max-width: 400px){
+   margin-top: 10px;
+  }
   
   
   
