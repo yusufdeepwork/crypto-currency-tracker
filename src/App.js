@@ -19,6 +19,10 @@ const AppContainer = styled.div`
   display: flex;
   height: 97vh;
   background-color: #f6f8f9;
+
+  @media screen and (max-width: 400px){
+    height: 86vh;
+  }
   
 `;
 const BottomCorner = styled.div`
