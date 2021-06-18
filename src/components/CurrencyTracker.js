@@ -31,4 +31,9 @@ const Container = styled.div`
     height: 97vh;
     width: 85%;
   }
+  @media screen and (max-width: 400px){
+    height: 93vh;
+    width: 85%;
+    margin-bottom: 10px;
+  }
 `;
