@@ -7,7 +7,7 @@
 `🌟` searching by Crypto name.
 
 
-#Preview
+#  Website Preview
 ## Desktop Preview
 ![Desktop Preview](github-images/Desktop.png)
 ## Mobile Preview
